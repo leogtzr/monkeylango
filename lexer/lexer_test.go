@@ -1,7 +1,6 @@
-package main
+package lexer
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/leogtzr/monkeylango/token"
@@ -26,6 +25,18 @@ func TestNextToken(t *testing.T) {
 		{token.EOF, ""},
 	}
 
-	fmt.Println(input)
-	fmt.Println(tests)
+	lex := New(input)
+
+	for i, tt := range tests {
+		tok := lex.NextToken()
+		if tok.Type != tt.expectedType {
+			t.Fatalf("tests[%d] - tokentype wrong. expected=%q, got=%q",
+				i, tt.expectedType, tok.Type)
+		}
+		if tok.Literal != tt.expectedLiteral {
+			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q",
+				i, tt.expectedLiteral, tok.Literal)
+		}
+	}
+
 }
