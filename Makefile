@@ -8,7 +8,6 @@ build:
 clean:
 	go clean
 	rm --force "cp.out"
-	rm --force nohup.out
 
 test:
 	go test ./...
@@ -17,7 +16,7 @@ check:
 	go test ./...
 
 cover:
-	go test -coverprofile cp.out
+	go test -coverprofile cp.out ./...
 	go tool cover -html=cp.out
 
 run:

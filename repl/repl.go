@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 
+	"github.com/leogtzr/monkeylango/evaluator"
 	"github.com/leogtzr/monkeylango/lexer"
 	"github.com/leogtzr/monkeylango/parser"
 )
@@ -32,8 +33,11 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		io.WriteString(out, program.String())
-		io.WriteString(out, "\n")
+		evaluated := evaluator.Eval(program)
+		if evaluated != nil {
+			io.WriteString(out, program.String())
+			io.WriteString(out, "\n")
+		}
 	}
 }
 
