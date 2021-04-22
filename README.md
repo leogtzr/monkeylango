@@ -1,4 +1,4 @@
-# monkey - programming language implementation in Go
+# monkey - Programming Language implementation in Go
 
 ## Donation / Sponsorship ❤️ 👍
 
