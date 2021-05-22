@@ -1,6 +1,7 @@
 package evaluator
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/leogtzr/monkeylango/lexer"
@@ -394,6 +395,28 @@ func TestBuiltinFunctions(t *testing.T) {
 				t.Errorf("wrong error message. expected=%q, got=%q",
 					expected, errObj.Message)
 			}
+		default:
+			fmt.Println("Is other ... ")
+		}
+	}
+}
+
+func TestRestBuiltinFunction(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected string
+	}{
+		{`let a = [1, 2, 3, 4]; rest(a)`, "[2, 3, 4]"},
+		{`rest(2)`, "ERROR: argument to `rest` must be ARRAY, got INTEGER"},
+	}
+
+	for _, tt := range tests {
+		evaluated := testEval(tt.input)
+
+		evaluatedStr := evaluated.Inspect()
+
+		if tt.expected != evaluatedStr {
+			t.Errorf("expected=`%s`, got=`%s`", tt.expected, evaluatedStr)
 		}
 	}
 }
