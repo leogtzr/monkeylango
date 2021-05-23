@@ -851,7 +851,6 @@ func TestParsingIndexExpressions(t *testing.T) {
 	}
 }
 
-// TODO: to java this.
 func TestParsingHashLiteralsStringKeys(t *testing.T) {
 	input := `{"one": 1, "two": 2, "three": 3}`
 
@@ -887,7 +886,6 @@ func TestParsingHashLiteralsStringKeys(t *testing.T) {
 	}
 }
 
-// TODO: to java this:
 func TestParsingEmptyHashLiteral(t *testing.T) {
 	input := "{}"
 	l := lexer.New(input)
