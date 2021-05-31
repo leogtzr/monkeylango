@@ -1,9 +1,6 @@
-name: CICD
+name: CICD for monkeylango
 
-on: 
-  push: 
-    branches: 
-    — main
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
