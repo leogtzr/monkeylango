@@ -1,0 +1,35 @@
+name: CICD
+
+on: 
+  push: 
+    branches: 
+    — main 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    
+    # Setup Go
+    - name: Setup Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '1.16.2' # The Go version to download (if necessary) and use.
+    
+    # Install all the dependencies
+    - name: Install dependencies
+      run: |
+        go version
+        go get -u golang.org/x/lint/golint
+        
+    # Run build of the application
+    - name: Run build
+      run: go build "cmd/main.go"
+          
+    - name: Run testing
+      run: go test -v ./...
+    
