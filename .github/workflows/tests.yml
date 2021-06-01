@@ -1,4 +1,4 @@
-name: build
+name: tests
 
 on:
   push:
@@ -22,7 +22,6 @@ jobs:
         go version
         go get -u golang.org/x/lint/golint
         
-    # Run build of the application
-    - name: Run build
-      run: go build "cmd/main.go"
-
+    - name: Run testing
+      run: go test -v ./...
+    
