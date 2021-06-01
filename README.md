@@ -1,6 +1,6 @@
 # monkey - Programming Language implementation in Go
 
-[![Build Status](https://github.com/leogtzr/monkeylango/workflows/build/badge.svg)](https://github.com/leogtzr/monkeylango/actions)
+[![build](https://github.com/leogtzr/monkeylango/actions/workflows/build.yml/badge.svg)](https://github.com/leogtzr/monkeylango/actions/workflows/build.yml)
 
 ## Donation / Sponsorship ❤️ 👍
 
